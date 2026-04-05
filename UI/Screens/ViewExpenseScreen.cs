@@ -25,12 +25,10 @@ namespace ExpenseTracker.UI.Screens
             {
                 foreach (var expense in expenses)
                 {
-                    Console.WriteLine($"{expense.id} | {expense.Description} | {expense.Amount:C} | {expense.DateAdded}");
+                    Console.WriteLine($"{expense.Description} | {expense.Amount:C}");
                 }
             }
-
-            Console.WriteLine("Press any key to go back to Main menu");
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }

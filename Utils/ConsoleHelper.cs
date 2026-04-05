@@ -1,8 +1,10 @@
+using System.Text.RegularExpressions;
+
 namespace ExpenseTracker.Utils
 {
     public class ConsoleHelper
     {
-        public int InputGetter(string inputMsg)
+        public int InputGetterInt(string inputMsg)
         {
             Console.Write(inputMsg);
             if (int.TryParse(Console.ReadLine(), out int result))
@@ -14,8 +16,9 @@ namespace ExpenseTracker.Utils
             return 0;
         }
 
-        public decimal InputGetter()
+        public decimal InputGetterDec(string inputMsg)
         {
+            Console.Write(inputMsg);
             if (decimal.TryParse(Console.ReadLine(), out decimal result))
             {
                 return result;
@@ -23,6 +26,19 @@ namespace ExpenseTracker.Utils
 
             Console.WriteLine("Invalid input. Please enter a number to proceed");
             return 0;
+        }
+
+        public string InputGetterStr(string inputMsg)
+        {
+            string? userName;
+            do
+            {
+                Console.Write(inputMsg);
+                userName = Console.ReadLine();
+            }
+            while (string.IsNullOrWhiteSpace(userName) || !userName.All(char.IsLetterOrDigit));
+
+            return userName;
         }
     }
 }

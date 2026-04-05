@@ -1,23 +1,24 @@
 ﻿using ExpenseTracker.Application.Session;
 using ExpenseTracker.Core.Interface;
 using ExpenseTracker.Core.Models;
+using ExpenseTracker.Utils;
 
 public class AppInitializer
 {
     private readonly IUserRepository _repo;
     private readonly UserSession _session;
+    private readonly ConsoleHelper _validator;
 
-    public AppInitializer(IUserRepository userRepo, UserSession session)
+    public AppInitializer(IUserRepository userRepo, UserSession session, ConsoleHelper validator)
     {
         _repo = userRepo;
         _session = session;
+        _validator = validator;
     }
 
     public void Initialize()
     {
-
-        Console.Write("Enter your name: ");
-        var name = Console.ReadLine();
+        var name = _validator.InputGetterStr("Enter a username (Letters and numbers only, no spaces): ");
 
         if (name != null)
         {

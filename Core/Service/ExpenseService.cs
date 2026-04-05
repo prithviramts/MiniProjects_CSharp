@@ -29,9 +29,9 @@ namespace ExpenseTracker.Core.Service
             return _repository.GetAll(_user.UserId);
         }
 
-        public void DeleteExpenseAction(int id)
+        public void DeleteExpenseAction(string desc)
         {
-            _repository.Delete(id);
+            _repository.Delete(_user.UserId, desc);
         }
     }
 }

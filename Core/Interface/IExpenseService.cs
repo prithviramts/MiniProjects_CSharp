@@ -9,7 +9,7 @@ namespace ExpenseTracker.Core.Interface
     {
         void AddExpenseAction(Expense expense);
         List<Expense> GetExpenseAction();
-        void DeleteExpenseAction(int id);
+        void DeleteExpenseAction(string desc);
         
     }
 }

@@ -8,24 +8,21 @@ namespace ExpenseTracker.UI.Screens
     {
         private readonly ExpenseController _controller;
         private readonly ConsoleHelper _consoleHelper;
-        private readonly UserSession _user;
 
-        public AddExpenseScreen(ExpenseController controller, ConsoleHelper consoleHelper, UserSession user)
+        public AddExpenseScreen(ExpenseController controller, ConsoleHelper consoleHelper)
         {
             _controller = controller;
             _consoleHelper = consoleHelper;
-            _user = user;
         }
 
-        public void AddExpense()
+        public void AddExpense(int userId)
         {
             Console.WriteLine("Please enter the below details to add the expense:");
             Console.Write("Description : ");
             var desc = Console.ReadLine() ?? string.Empty;
-            Console.Write("Amount (in decimal) : ");
-            var amt = _consoleHelper.InputGetter();
+            var amt = _consoleHelper.InputGetterDec("Amount (in decimal too) : ");
 
-            _controller.AddExpense(desc, amt, _user.UserId);
+            _controller.AddExpense(desc, amt, userId);
 
             Console.WriteLine("Value added successfully.");
             Thread.Sleep(1000);

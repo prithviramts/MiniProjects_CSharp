@@ -32,14 +32,14 @@ namespace ExpenseTracker.Infrastructure.Data
             return _context.Expenses.Find(id);
         }
 
-        public void Delete(int id)
+        public void Delete(int id, string desc)
         {
-            var expense = _context.Expenses.Find(id);
-            if (expense != null)
+            var expenses = _context.Expenses.Where(x => x.UserId == id && x.Description == desc).ToList();
+            foreach (var expense in expenses)
             {
                 _context.Expenses.Remove(expense);
-                _context.SaveChanges();
             }
+            _context.SaveChanges();
         }
 
         public void Update(Expense expense)

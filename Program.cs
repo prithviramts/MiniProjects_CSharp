@@ -25,6 +25,7 @@ services.AddScoped<IExpenseService, ExpenseService>();
 services.AddScoped<ExpenseController>();
 services.AddScoped<AddExpenseScreen>();
 services.AddScoped<ViewExpenseScreen>();
+services.AddScoped<DeleteExpenseScreen>();
 services.AddScoped<MenuManager>();
 services.AddScoped<IUserRepository, UserRepository>();
 services.AddScoped<AppInitializer>();

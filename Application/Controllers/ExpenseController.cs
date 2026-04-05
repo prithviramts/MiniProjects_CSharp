@@ -31,9 +31,9 @@ namespace ExpenseTracker.Application.Controllers
             return _service.GetExpenseAction();
         }
 
-        public void DeleteExpense(int id)
+        public void DeleteExpense(string desc)
         {
-            _service.DeleteExpenseAction(id);
+            _service.DeleteExpenseAction(desc);
         }
     }
 }

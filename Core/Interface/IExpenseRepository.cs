@@ -10,7 +10,7 @@ namespace ExpenseTracker.Core.Interface
         void Add(Expense expense);
         List<Expense> GetAll(int userId);
         Expense? GetById(int id);
-        void Delete(int id);
+        void Delete(int id, string desc);
         void Update(Expense expense);
     }
 }
